@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Feel Good Coffee</h1>
+<div class="row">
+  {% for coffee in coffee %}
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ coffee.image.url }}" alt="{{ coffee.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ coffee.name }}</h5>
+          <p class="card-text">R{{ coffee.price }}</p>
+          <a href="#" class="btn btn-primary add-to-cart" data-product-id="{{ coffee.id }}" data-product-name="{{ coffee.name }}" data-product-price="{{ coffee.price }}">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<script src="{% static 'script.js' %}"></script>
+
+{% endblock %}
+
+</body>
+</html>
